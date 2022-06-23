@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <script type="text/javascript" src="scripts/validate.js"></script>
+
+  <!-- Password checking script here!! -->
+  <script>
+    function checkPasswordMatch(e) {
+      var form = document.getElementById("mainForm");
+
+      form.onsubmit = function (e) {
+        var pwrd = document.getElementById("password");
+        var pwrdCheck = document.getElementById("password-check");
+
+        if(pwrd.value != pwrdCheck.value) {
+          makeRed(pwrd);
+          makeRed(pwrdCheck);
+          e.preventDefault();
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <form enctype="multipart/form-data" method="post" action="newuser.php" id="mainForm">
+    First Name:<br>
+    <input type="text" name="firstname" id="firstname" class="required">
+    <br>
+    Last Name:<br>
+    <input type="text" name="lastname" id="lastname" class="required">
+    <br>
+    Username:<br>
+    <input type="text" name="username" id="username" class="required">
+    <br>
+    email:<br>
+    <input type="text" name="email" id="email" class="required">
+    <br>
+    User Image:<br>
+    <input type="file" name="userImage" id="userImage" class="required">
+    <br>
+    Password:<br>
+    <input type="password" name="password" id="password" class="required">
+    <br>
+    Re-enter Password:<br>
+    <input type="password" name="password-check" id="password-check" class="required">
+    <br><br>
+    <input type="submit" value="Create New User" name="submit">
+  </form>
+</body>
